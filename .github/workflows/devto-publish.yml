@@ -1,0 +1,41 @@
+name: Publish Blog to Dev.to
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "blogs/*.md"  # Watches the 'blogs' folder for new Markdown files
+
+jobs:
+  publish_to_devto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Find new blog post
+        id: get_latest_file
+        run: echo "LATEST_FILE=$(ls -t blogs/*.md | head -1)" >> $GITHUB_ENV
+
+      - name: Read blog content
+        id: read_content
+        run: |
+          echo "BLOG_CONTENT=$(cat $LATEST_FILE | jq -Rs .)" >> $GITHUB_ENV
+          echo "TITLE=$(head -n 1 $LATEST_FILE | sed 's/# //')" >> $GITHUB_ENV
+
+      - name: Publish to Dev.to
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+        run: |
+          curl -X POST "https://dev.to/api/articles" \
+          -H "Content-Type: application/json" \
+          -H "api-key: $DEVTO_API_KEY" \
+          -d '{
+            "article": {
+              "title": "'"$TITLE"'",
+              "published": true,
+              "body_markdown": '"$BLOG_CONTENT"',
+              "tags": ["github", "automation", "devto"]
+            }
+          }'
