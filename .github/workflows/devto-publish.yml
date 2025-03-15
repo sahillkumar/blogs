@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "blogs/*.md"  # Watches the 'blogs' folder for new Markdown files
+      - "blogs/**/**/*.md" # Watches all Markdown files inside any subfolder of 'blogs'
 
 jobs:
   publish_to_devto:
@@ -14,9 +14,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Find new blog post
+      - name: Find latest blog post
         id: get_latest_file
-        run: echo "LATEST_FILE=$(ls -t blogs/*.md | head -1)" >> $GITHUB_ENV
+        run: echo "LATEST_FILE=$(find blogs -type f -name '*.md' | sort -r | head -n 1)" >> $GITHUB_ENV
 
       - name: Read blog content
         id: read_content
