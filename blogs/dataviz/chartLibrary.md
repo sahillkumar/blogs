@@ -70,5 +70,5 @@ I hope this blog helps you make an informed decision when choosing the right cha
 
 ## 📄 References
 
-- [Best 19+ JavaScript Chart Libraries to Use in 2024](https://flatlogic.com/blog/best-19-javascript-charts-libraries/)
-- [Horak-2018-Graph-Performance.pdf](https://imld.de/cnt/uploads/Horak-2018-Graph-Performance.pdf)
+- Best 19+ JavaScript Chart Libraries to Use in 2024
+- Horak-2018-Graph-Performance.pdf
