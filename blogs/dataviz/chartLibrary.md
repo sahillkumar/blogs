@@ -52,15 +52,15 @@ In this blog, I will share some pointers that one should consider before choosin
 
 Rendering technology plays a crucial role in charting performance and interactivity. Many developers overlook how these technologies work internally and how they impact scalability and user experience. Below is a breakdown of the three primary rendering methods:
 
-| Feature           | **SVG (Scalable Vector Graphics)**                                         | **Canvas (HTML5 Canvas API)**                                                | **WebGL (Web Graphics Library)**                                   |
-| ----------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| **How It Works**  | Uses DOM elements for rendering vector graphics.                           | Draws graphics pixel by pixel on a bitmap.                                   | Uses GPU acceleration to render graphics efficiently.              |
-| **Performance**   | Slower with large datasets due to high DOM overhead.                       | Faster than SVG, better suited for medium to large datasets.                 | Extremely fast, capable of rendering millions of data points.      |
-| **Interactivity** | High – Each element is a DOM node, making event handling easy.             | Moderate – Requires manual event handling for interaction.                   | Low – Handling events requires extra effort.                       |
-| **Scalability**   | Excellent – Scales without pixelation, ideal for zooming.                  | Poor – Zooming in can cause pixelation.                                      | Excellent – Can handle complex, high-performance visualizations.   |
-| **Customization** | Easy – Can be styled with CSS and animations.                              | Moderate – Styling requires JavaScript manipulation.                         | Complex – Requires custom shader programming for advanced effects. |
-| **Best For**      | Small to medium datasets, business dashboards, interactive visualizations. | Medium to large datasets, real-time updates, performance-heavy applications. | Massive datasets, 3D visualizations, real-time simulations.        |
-| **Examples**      | Highcharts, D3.js                                                          | Chart.js, Apache ECharts                                                     | SciCharts, Lightning Chart                                         |
+| Feature           | **SVG (Scalable Vector Graphics)**                                         | **Canvas (HTML5 Canvas API)**                                                       | **WebGL (Web Graphics Library)**                                                                |
+| ----------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **How It Works**  | Uses DOM elements for rendering vector graphics.                           | Draws graphics pixel by pixel on a bitmap.                                          | Uses GPU acceleration to render graphics efficiently.                                           |
+| **Performance**   | Slower with large datasets due to high DOM overhead.                       | Faster than SVG, better suited for medium to large datasets.                        | Extremely fast, capable of rendering millions of data points.                                   |
+| **Interactivity** | High – Each element is a DOM node, making event handling easy.             | Moderate – Requires manual event handling for interaction.                          | Low – Handling events requires extra effort.                                                    |
+| **Scalability**   | Excellent – Scales without pixelation, ideal for zooming.                  | Poor – Zooming in can cause pixelation.                                             | Excellent – Can handle complex, high-performance visualizations.                                |
+| **Customization** | Easy – Can be styled with CSS and animations.                              | Moderate – Styling requires JavaScript manipulation.                                | Complex – Requires custom shader programming for advanced effects.                              |
+| **Best For**      | Small to medium datasets, business dashboards, interactive visualizations. | Medium to large datasets, real-time updates, performance-heavy applications.        | Massive datasets, 3D visualizations, real-time simulations.                                     |
+| **Examples**      | [Highcharts](https://www.highcharts.com/), [D3.js](https://d3js.org/)      | [Chart.js](https://www.chartjs.org/), [Apache ECharts](https://echarts.apache.org/) | [SciCharts](https://www.scichart.com/), [Lightning Chart](https://lightningchart.com/js-charts) |
 
 ## 🏆 Conclusion
 
@@ -70,5 +70,5 @@ I hope this blog helps you make an informed decision when choosing the right cha
 
 ## 📄 References
 
-- Best 19+ JavaScript Chart Libraries to Use in 2024
-- Horak-2018-Graph-Performance.pdf
+- [Best 19+ JavaScript Chart Libraries to Use in 2024](https://flatlogic.com/blog/best-19-javascript-charts-libraries/)
+- [Comparing Rendering Performance of Common Web Technologies for Large Graphs](https://imld.de/cnt/uploads/Horak-2018-Graph-Performance.pdf)
