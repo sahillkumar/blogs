@@ -7,7 +7,7 @@ cover_image: ../../assets/images/data-viz-main.jpg
 canonical_url: null
 ---
 
-# Choosing the ~~Best~~ Right Chart Library
+# Choosing the Right Chart Library
 
 ## Importance of Data Analytics
 
