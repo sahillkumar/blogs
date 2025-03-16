@@ -5,7 +5,7 @@ on:
 
 jobs:
   my_job:
-    name: push details to Dev.to
+    name: Publish blog to dev.to
     permissions:
       contents: write # this lets the bot update the post in github
     runs-on: ubuntu-latest # ubuntu costs half the price of windows
