@@ -3,7 +3,7 @@ title: Choosing the Right Chart Library
 published: false
 description: A blog to help you choose the right chart library for your needs
 tags: "data visualization, charts, dashboards"
-cover_image: ../../assets/images/data-viz-main.jpg
+cover_image: /assets/images/data-viz-main.jpg
 canonical_url: null
 ---
 
