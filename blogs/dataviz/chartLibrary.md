@@ -2,7 +2,7 @@
 title: Choosing the Right Chart Library
 published: true
 description: A blog to help you choose the right chart library for your needs
-tags: "datavisualization, charts, dashboards, javascript"
+tags: 'datavisualization, charts, dashboards, javascript'
 cover_image: ../../assets/images/data-viz-main.jpg
 canonical_url: null
 id: 2336188
