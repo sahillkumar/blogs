@@ -1,41 +1,23 @@
-name: Publish Blog to Dev.to
-
 on:
   push:
     branches:
       - main
-    paths:
-      - "blogs/**/**/*.md" # Watches all Markdown files inside any subfolder of 'blogs'
 
 jobs:
-  publish_to_devto:
-    runs-on: ubuntu-latest
+  my_job:
+    name: push details to Dev.to
+    permissions:
+      contents: write # this lets the bot update the post in github
+    runs-on: ubuntu-latest # ubuntu costs half the price of windows
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Find latest blog post
-        id: get_latest_file
-        run: echo "LATEST_FILE=$(find blogs -type f -name '*.md' | sort -r | head -n 1)" >> $GITHUB_ENV
-
-      - name: Read blog content
-        id: read_content
-        run: |
-          echo "BLOG_CONTENT=$(cat $LATEST_FILE | jq -Rs .)" >> $GITHUB_ENV
-          echo "TITLE=$(head -n 1 $LATEST_FILE | sed 's/# //')" >> $GITHUB_ENV
-
-      - name: Publish to Dev.to
-        env:
-          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
-        run: |
-          curl -X POST "https://dev.to/api/articles" \
-          -H "Content-Type: application/json" \
-          -H "api-key: $DEVTO_API_KEY" \
-          -d '{
-            "article": {
-              "title": "'"$TITLE"'",
-              "published": true,
-              "body_markdown": '"$BLOG_CONTENT"',
-              "tags": ["github", "automation", "devto"]
-            }
-          }'
+      - uses: actions/checkout@v3 # checks out my code to the actions build
+      - name: Publish articles on Dev.to
+        uses: sinedied/publish-devto@v2
+        with:
+          devto_key: ${{ secrets.DEVTO_API_KEY }} # the secret you setup
+          github_token: ${{ secrets.GITHUB_TOKEN }} # this is an inbuilt secret by github
+          files: "blogs/**/*.md"
+          branch: main
+          conventional_commits: true
+          dry_run: false # set this to true if you want to do a dry run
