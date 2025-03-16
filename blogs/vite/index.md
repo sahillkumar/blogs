@@ -1,5 +1,5 @@
 ---
-title: Sunrise after CRA Sunset: Create React App to Vite Migration
+title: Sunrise after CRA Sunset - Create React App to Vite Migration
 published: false # if you set this to false it will publish the page as a draft
 description: An article used to test pushing to Dev.to
 tags: "react, vite, webpack, migration"
@@ -7,7 +7,7 @@ cover_image: ../../assets/images/vite-webpack-comparison.png
 canonical_url: null # set this if you have a website you want to be promoted
 ---
 
-# Sunrise after CRA Sunset: Create React App to Vite Migration
+# Sunrise after CRA Sunset -- Create React App to Vite Migration
 
 ## 📝 Introduction
 
