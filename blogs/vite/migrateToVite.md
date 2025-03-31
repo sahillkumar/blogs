@@ -6,6 +6,7 @@ tags: 'react, CRA, webpack, vite'
 cover_image: ../../assets/images/hare-and-tortoise.jpg
 canonical_url: null
 id: 2369139
+date: '2025-03-31T17:19:53Z'
 ---
 
 ## Introduction
