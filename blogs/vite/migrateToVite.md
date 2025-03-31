@@ -1,12 +1,13 @@
 ---
-title: Transforming Little Engine into Epic Engine — Create React App to Vite Migration
 published: false
 description: Create React App to Vite Migration
-tags: 'react, CRA, webpack, vite'
+tags: "react, CRA, webpack, vite"
 cover_image: ../../assets/images/hare-and-tortoise.png
 canonical_url: null
 id: 2369139
 ---
+
+# Transforming Little Engine into Epic Engine — Create React App to Vite Migration
 
 ## Introduction
 
@@ -101,4 +102,4 @@ This transition has empowered our team to iterate faster, reduce friction in dev
 - [Vite Official Guide](https://vitejs.dev/)
 - [React Blog: Sunsetting Create React App](https://react.dev/blog/2025/sunsetting-create-react-app)
 
-### 🔜 Next Steps: [Read the Migration Guide →](https://vitejs.dev/guide/)
+### 🔜 Next Steps: [Read the Migration Guide →](https://dev.to/sahillk/migrating-from-create-react-app-to-vite-a-step-by-step-guide-1b4k)
