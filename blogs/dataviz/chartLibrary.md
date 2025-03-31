@@ -6,6 +6,7 @@ tags: 'datavisualization, charts, dashboards, javascript'
 cover_image: ../../assets/images/data-viz-main.jpg
 canonical_url: null
 id: 2336188
+date: '2025-03-16T18:10:27Z'
 ---
 
 ## Importance of Data Analytics
