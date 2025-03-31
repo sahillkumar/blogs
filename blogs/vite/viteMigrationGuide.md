@@ -1,5 +1,5 @@
 ---
-title: Migrating from Create React App to Vite: A Step-by-Step Guide
+title: Migrating from Create React App to Vite — A Step-by-Step Guide
 published: false # if you set this to false it will publish the page as a draft
 description: Create React App to Vite Migration
 tags: "react, CRA, webpack, vite"
