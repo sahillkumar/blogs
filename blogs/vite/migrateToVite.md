@@ -2,7 +2,7 @@
 title: Transforming Little Engine into Epic Engine — Create React App to Vite Migration
 published: true
 description: Create React App to Vite Migration
-tags: "react, CRA, webpack, vite"
+tags: 'react, CRA, webpack, vite'
 cover_image: ../../assets/images/hare-and-tortoise.jpg
 canonical_url: null
 id: 2369139
