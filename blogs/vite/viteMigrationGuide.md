@@ -1,6 +1,6 @@
 ---
 title: Migrating from Create React App to Vite — A Step-by-Step Guide
-published: false # if you set this to false it will publish the page as a draft
+published: true # if you set this to false it will publish the page as a draft
 description: Create React App to Vite Migration
 tags: "react, CRA, webpack, vite"
 canonical_url: null # set this if you have a website you want to be promoted
@@ -393,4 +393,4 @@ Finally, delete unnecessary Webpack-related files and dependencies, including:
 If you feel any step can be improved, more details can be added, or new steps should be included, please feel free to contribute!
 
 Check out the repository and submit a pull request:  
-[GitHub Repository](https://github.com/your-repo-link)
+[GitHub Repository](https://github.com/sahillkumar/blogs/blob/main/blogs/vite/viteMigrationGuide.md)
