@@ -3,7 +3,7 @@ title: Transforming Little Engine into Epic Engine — Create React App to Vite 
 published: false # if you set this to false it will publish the page as a draft
 description: Create React App to Vite Migration
 tags: "react, CRA, webpack, vite"
-cover_image: ../../assets/images/sunset.webp
+cover_image: ../../assets/images/hare-and-tortoise.png
 canonical_url: null # set this if you have a website you want to be promoted
 ---
 
