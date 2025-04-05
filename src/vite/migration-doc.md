@@ -1,8 +1,8 @@
 ---
-title: The Sunrise after CRA's Sunset
+title: Supercharging React Development with Vite
 published: true
-description: How migrating to Vite leveled up our React development workflow
-tags: "react, CRA, webpack, vite, webdev"
+description: Create React App to Vite migration
+tags: "react, CRA, webpack, vite"
 canonical_url: null
 id: 2369139
 date: "2025-03-31T17:19:53Z"
