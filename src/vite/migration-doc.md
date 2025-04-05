@@ -1,12 +1,11 @@
 <!-- ---
 title: The Sunrise after CRA's Sunset
-published: false
+published: true
 description: How migrating to Vite leveled up our React development workflow
 tags: 'react, CRA, webpack, vite, webdev'
 canonical_url: null
 id: 2369139
 date: '2025-03-31T17:19:53Z'
-subtitle: How migrating to Vite leveled up our React development workflow
 --- -->
 
 ## Introduction
