@@ -2,10 +2,10 @@
 title: Supercharging React Development with Vite
 published: true
 description: Create React App to Vite migration
-tags: "react, CRA, webpack, vite"
+tags: 'react, CRA, webpack, vite'
 canonical_url: null
 id: 2369139
-date: "2025-03-31T17:19:53Z"
+date: '2025-03-31T17:19:53Z'
 ---
 
 ## Introduction
