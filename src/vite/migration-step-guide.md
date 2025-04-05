@@ -1,7 +1,7 @@
 ---
 title: Migrating from Create React App to Vite — A Step-by-Step Guide
 published: true
-description: Create React App to Vite Migration
+description: Create React App to Vite Migration Steps
 tags: "react, CRA, webpack, vite"
 canonical_url: null
 id: 2369138
@@ -21,6 +21,8 @@ npm install vite @vitejs/plugin-react --save-dev
 - **`vite`** is the core build tool and development server that provides fast bundling and HMR.
 - **`@vitejs/plugin-react`** enables React-specific optimizations like Fast Refresh and JSX transformation.
 
+---
+
 ### 2. Create Vite Configuration File
 
 Create a **`vite.config.ts`** file in the root directory:
@@ -37,6 +39,8 @@ export default defineConfig({
   },
 });
 ```
+
+---
 
 - **`server.port`** specifies the port on which the Vite development server will run. By default, Vite uses port **`5173`**, by setting it to **`3000`** makes it consistent with CRA.
 - **`server.open`** automatically opens the browser when the development server starts.
@@ -61,6 +65,8 @@ Now, remove all **`%PUBLIC_URL%`** occurrences in the index.html file:
 <link rel="icon" href="/favicon.ico" />
 ```
 
+---
+
 ### 4. Update Script Commands
 
 Replace the CRA scripts in **`package.json`** with Vite equivalents:
@@ -71,6 +77,8 @@ Replace the CRA scripts in **`package.json`** with Vite equivalents:
   "build": "vite build",
 }
 ```
+
+---
 
 ### 5. Update Environment Variables
 
@@ -97,6 +105,8 @@ export const config = process.env.REACT_APP_STAGING ? "staging" : "dev";
 // VITE
 export const config = import.meta.env.VITE_STAGING ? "staging" : "dev";
 ```
+
+---
 
 ### 6. Improve TypeScript Support and `tsconfig.json`
 
@@ -152,6 +162,8 @@ Update **`package.json`**:
 
 > The **`--noEmit`** flag prevents the compiler from generating JavaScript output files.
 
+---
+
 ### 7. Convert Files to `.jsx` and `.tsx`
 
 Rename files accordingly:
@@ -163,6 +175,8 @@ Rename files accordingly:
   <summary>Why is this required ?</summary>
     Vite avoids processing all <strong><code>.js</code></strong> and <strong><code>.ts</code></strong> files for JSX or TypeScript syntax by default to prevent unnecessary overhead, which could slow down the development server and build times. Instead, by explicitly using <strong><code>.jsx</code></strong> and <strong><code>.tsx</code></strong> extensions, Vite selectively applies transformations only to the files that require them. When encountering these files, Vite leverages esbuild to efficiently transform JSX or TypeScript syntax into standard JavaScript, ensuring faster builds and a more optimized development workflow.
 </details>
+
+---
 
 ### 8. Add Absolute Path Support & Path Aliasing
 
@@ -192,6 +206,8 @@ export default defineConfig({
 
 If any of your path aliases do not work as expected with **`vite-tsconfig-paths`**, you can manually define them as shown above.
 
+---
+
 ### 9. Add SVG Support
 
 Install **`vite-plugin-svgr`**:
@@ -216,6 +232,8 @@ export default defineConfig({
 import ChartIcon from "@assets/icons/Charts.svg?react";
 ```
 
+---
+
 ### 10. Configure Production Build & Target
 
 Update **`vite.config.ts`**:
@@ -233,6 +251,8 @@ export default defineConfig({
 
 - **`build.target`** sets the JavaScript target version for the output files. The default value is "modules", ensuring compatibility with modern browsers that support ES module syntax.
 - For older browser compatibility, refer to the [Vite Browser Compatibility Guide](https://vite.dev/guide/build.html#browser-compatibility)
+
+---
 
 ### 11. Add Testing with Vitest
 
@@ -289,9 +309,11 @@ Update Test Files:
 - Replace **`jest.fn()`** with **`vi.fn()`**
 - For further changes, refer to [Vitest Migration Guide](https://vitest.dev/guide/migration.html#jest)
 
+---
+
 ### 12. Adding Code Coverage
 
-We will integrate **Istanbul** to generate code coverage reports.
+We will integrate **Istanbul** to generate code coverage reports. Other available option is **`v8`**
 
 Installation:
 
@@ -321,6 +343,8 @@ export default defineConfig({
 });
 ```
 
+---
+
 ### 13. Enable Source Maps & Add Bundle Visualizer
 
 To enable source maps in Vite, update the **`build.sourcemap`** option in the Vite configuration:
@@ -339,7 +363,7 @@ Since Vite uses **Rollup** for production builds, we will install **`rollup-plug
 
 Install **`rollup-plugin-visualizer`**:
 
-```
+```sh
 npm install --save-dev rollup-plugin-visualizer
 ```
 
@@ -356,11 +380,13 @@ export default defineConfig({
 To prevent the visualizer from running with every build, we will create a separate script for it.
 Update **`package.json`**:
 
-```sh
+```json
 "scripts": {
   "stats": "vite build && open stats.html"
 }
 ```
+
+---
 
 ### 14. Setting Global Variable
 
@@ -374,15 +400,73 @@ Update **`index.html`**:
 </script>
 ```
 
-### 15. Remove CRA and Webpack-Related Configurations
+---
+
+### 15. Update storybook support
+
+Install @storybook/react-vite
+
+```sh
+npm install --save-dev  @storybook/react-vite
+```
+
+Update **`.storybook/main.ts`**:
+
+```ts
+const config = {
+  framework: {
+    name: "@storybook/react-vite",
+    options: {},
+  },
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+};
+
+export default config;
+```
+
+---
+
+### 16. Update Sentry Configuration
+
+Update **`vite.config.ts`**: Additionally, to enhance the debugging process, we will upload source maps to Sentry.
+
+```ts
+import { sentryVitePlugin } from "@sentry/vite-plugin";
+
+export default defineConfig({
+    plugins: [
+      sentryVitePlugin({
+        org: /* <Sentry Org Name> */,
+        project: /* <Sentry Project Name> */,
+        authToken: /* <Sentry Auth Token> */,
+        sourcemaps: {
+          filesToDeleteAfterUpload: ["./build/**/*.map"],
+        },
+        release: {
+          name: /* <Your app release version or build no> */,
+        },
+      }),
+    ],
+});
+```
+
+- **`filesToDeleteAfterUpload`** option deletes the source map after the sourcemaps are uploaded to sentry
+
+---
+
+### 17. Remove CRA and Webpack-Related Configurations
 
 Finally, delete unnecessary Webpack-related files and dependencies, including:
 
 - Remove **`react-scripts`** commands
 - Uninstall Jest-related packages
 - Uninstall the following Webpack-related dependencies:
+
   - **`webpack`**
   - **`webpack-bundle-analyzer`**
+
+- Sentry webpack package : **`@sentry/webpack-plugin`**
+- Storybook webpack packages : **`@storybook/builder-webpack5`**, **`@storybook/manager-webpack5`**
 
 ### References
 
@@ -395,4 +479,4 @@ Finally, delete unnecessary Webpack-related files and dependencies, including:
 If you feel any step can be improved, more details can be added, or new steps should be included, please feel free to contribute!
 
 Check out the repository and submit a pull request:  
-[GitHub Repository](https://github.com/sahillkumar/blogs/blob/main/blogs/vite/viteMigrationGuide.md)
+[GitHub Repository](https://github.com/sahillkumar/blogs/blob/main/src/vite/migration-step-guide.md)
