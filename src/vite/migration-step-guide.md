@@ -1,12 +1,12 @@
-<!-- ---
+---
 title: Migrating from Create React App to Vite — A Step-by-Step Guide
 published: true
 description: Create React App to Vite Migration
-tags: 'react, CRA, webpack, vite'
+tags: "react, CRA, webpack, vite"
 canonical_url: null
 id: 2369138
-date: '2025-03-31T16:56:13Z'
---- -->
+date: "2025-03-31T16:56:13Z"
+---
 
 Migrating from Create React App (CRA) to Vite enhances development speed and efficiency, making it ideal for industry-level projects. CRA’s reliance on Webpack often results in slower builds and hot module replacement (HMR). Vite, leveraging ES modules, provides instant HMR, faster builds, and a leaner setup. This guide walks through the migration process, covering essential updates for configurations, environment variables, TypeScript, testing, and build optimizations.
 
