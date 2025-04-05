@@ -1,13 +1,13 @@
----
-title: Transforming Little Engine into Epic Engine — Create React App to Vite Migration
-published: true
-description: Create React App to Vite Migration
-tags: 'react, CRA, webpack, vite'
-cover_image: ../../assets/images/hare-and-tortoise.jpg
+<!-- ---
+title: The Sunrise after CRA's Sunset
+published: false
+description: How migrating to Vite leveled up our React development workflow
+tags: 'react, CRA, webpack, vite, webdev'
 canonical_url: null
 id: 2369139
 date: '2025-03-31T17:19:53Z'
----
+subtitle: How migrating to Vite leveled up our React development workflow
+--- -->
 
 ## Introduction
 
@@ -19,7 +19,7 @@ However, as modern development practices evolve, CRA’s capabilities have becom
 
 ## Why Migrate from CRA?
 
-At [Playsimple](https://playsimple.in/), our internal dashboard (Little Engine) relied on CRA until now, but as our application scaled, we began facing several issues that significantly affected our development speed and efficiency.
+At [Playsimple](https://playsimple.in/), our internal dashboard tool relied on CRA until now, but as our application scaled, we began facing several issues that significantly affected our development speed and efficiency.
 
 ### Some challenges faced using CRA:
 
@@ -50,7 +50,7 @@ With CRA officially deprecated in February 2025 and its last update in 2022, mai
 Most apps would benefit from a framework, but there are valid cases to build a React app from scratch. A good rule of thumb is if your app needs routing, you would probably benefit from a framework.
 
 Since our app was already well-structured with React, adding a full-fledged framework would have introduced unnecessary complexity. Instead, we focused on improving developer experience and build performance, leading us to **Vite**—a faster and more efficient alternative to Webpack-based setups like CRA.
-![Webpack vs Vite Downloads in the past 5 years](../../assets/images/vite-webpack-comparison.jpg)
+![Webpack vs Vite Downloads in the past 5 years](../assets/images/vite-webpack-comparison.jpg)
 
 <p align="center"><em>Webpack vs Vite Downloads in the past 5 years</em></p>
 
@@ -71,7 +71,7 @@ Unlike Webpack, which bundles everything upfront, Vite leverages native ES modul
 - 🛠️ **Simplified Configuration** – Unlike CRA, which requires ejecting for custom setups, Vite offers a simple `vite.config.js` file for flexibility.
 - 📉 **Less Boilerplate & Dependencies** – CRA comes with outdated dependencies. Vite is leaner, faster, and more efficient.
 
-![Comparison of traditional bundle-based dev servers vs Vite’s dev server](../../assets/images/dev-servers.jpg)
+![Comparison of traditional bundle-based dev servers vs Vite’s dev server](../assets/images/dev-servers.jpg)
 
 <p align="center"><em>Comparison of traditional bundle-based dev servers vs Vite’s dev server</em></p>
 
